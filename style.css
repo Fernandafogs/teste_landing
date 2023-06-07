@@ -259,26 +259,28 @@ body {
 }
 
 .gallery .container .gallery-wrapper .product .image{
-    margin: 100px 25px;
     border: 1px solid #707070;
+    width: 100%;
+    margin-top: 30px;
 }
 
 .gallery .container .gallery-wrapper .product .name{
+    margin-top: 10px;
     font-size: 14px;
     font-weight: normal;
     color: #888888;
 }
 
 .gallery .container .gallery-wrapper .product .description,
-.gallery .container .gallery-wrapper .product .price1,
-.gallery .container .gallery-wrapper .product .price3{
+.gallery .container .gallery-wrapper .product .oldPrice,
+.gallery .container .gallery-wrapper .product .installments{
     margin-top: 5px;
     font-size: 12px;
     font-weight: normal;
     color: #888888;
 }
 
-.gallery .container .gallery-wrapper .product .price2{
+.gallery .container .gallery-wrapper .product .price{
     margin-top: 5px;
     font-size: 16px;
     font-weight: bold;
@@ -297,7 +299,7 @@ body {
     padding: 0;
 }
 
-.gallery .container .moreProducts{
+.gallery .container .nextPage{
     margin-top: 40px;
     width: 25%;
     padding: 10px 20px;
@@ -327,6 +329,7 @@ body {
     }
 
     .gallery .container .gallery-wrapper .product {
+        margin-top: 10px;
         width: 100%;
         display: flex;
         flex-direction: row;
@@ -335,7 +338,9 @@ body {
     }
 
     .gallery .container .gallery-wrapper .product .image{
-        margin: 60px 25px;
+        margin: 5px;
+        padding: 10px 20px;
+        width: 70%;
     }
 
     .gallery .container .gallery-wrapper .product .image-product{
@@ -346,7 +351,8 @@ body {
         width: 50%;
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: flex-start;
+        margin-right: 10px;
      
     }
 
