@@ -74,9 +74,10 @@ body {
 }
 
 .home .header .nav ul li a:hover{
-    background-color: #707070;
+    background-color: #888888;
     color: #FFFFFF;
 }
+
 
 @media (max-width:600px){
     .home .header{
@@ -173,6 +174,7 @@ body {
 
 
 .about .form .personal-data .input-wrapper{
+    margin-bottom: 12px;
     width: 100%;
     margin-right: 7px;
     justify-content: flex-start;
@@ -196,6 +198,7 @@ body {
 
 .about .form .personal-data .send{
     width: 100%;
+    margin-top: 10px;
     padding: 5px;
     border: 1px solid #707070;
     border-radius: 3px;
@@ -297,7 +300,22 @@ body {
     border: 1px solid #707070;
     border-radius: 3px;
     padding: 0;
+    cursor: pointer;
+    outline: none;
 }
+
+.gallery .container .gallery-wrapper .product .buy:hover {
+    background-color: #888888;
+    color:#ffffff
+}
+
+.gallery .container .gallery-wrapper .product .buy:active{
+    background-color: #888888;
+    color: #ffffff;
+    box-shadow: 0 5px #707070;
+    transform: translateY (4px);
+}
+
 
 .gallery .container .nextPage{
     margin-top: 40px;
@@ -309,6 +327,20 @@ body {
     background-color: #FFFFFF;
     border: 1px solid #707070;
     border-radius: 3px;
+    cursor: pointer;
+    outline: none;
+}
+
+.gallery .container .nextPage:hover {
+    background-color: #888888;
+    color:#ffffff
+}
+
+.gallery .container .nextPage:active{
+    background-color: #888888;
+    color: #ffffff;
+    box-shadow: 0 5px #707070;
+    transform: translateY (4px);
 }
 
 @media (max-width:600px){
@@ -361,14 +393,48 @@ body {
     }
 
     .gallery .container .gallery-wrapper .product .product-description .buy{
+        color: #888888;
+        background-color: #FFFFFF;
+        border: 1px solid #707070;
+        border-radius: 3px;
         margin-top: 10px;
     }
 
-    .gallery .container .moreProducts{
+    .gallery .container .gallery-wrapper .product .buy:hover {
+        background-color: #888888;
+        color:#ffffff
+    }
+    
+    .gallery .container .gallery-wrapper .product .buy:active{
+        background-color: #888888;
+        color: #ffffff;
+        box-shadow: 0 5px #707070;
+        transform: translateY (4px);
+    }
+
+    .gallery .container .nextPage{
         margin-top: 20px;
         width: 60%;
         padding: 10px 20px;
+        color: #888888;
+        background-color: #FFFFFF;
+        border: 1px solid #707070;
+        border-radius: 3px;
     }
+
+    
+    .gallery .container .nextPage:hover {
+        background-color: #888888;
+        color:#ffffff
+    }
+        
+    .gallery .container .nextPage:active{
+        background-color: #888888;
+        color: #ffffff;
+        box-shadow: 0 5px #707070;
+        transform: translateY (4px);
+    }
+   
 
 }
 
