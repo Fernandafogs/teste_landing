@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Teste Landing Page</title>
     <link rel="stylesheet" href="style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/cpf-cnpj-validator@3.0.0/dist/cpf.js"></script>
+
+
 </head>
 
 <body>
@@ -48,34 +52,40 @@
                 <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Error fugiat similique numquam repellat sit voluptates aspernatur, et consequuntur quod laboriosam aliquam quia asperiores velit beatae fuga ipsam facere voluptate cum.</p>
             </div>
             <div class="form">
-                <form action="">
+                <form id="formRegistration" action="registerData.html">
 
                     <div class="personal-data">
                         <div class="input-wrapper">
-                            <label>Seu nome:</label>
-                            <br>
-                            <input type="text" placeholder="">
+                            <label>
+                                Seu nome:
+                                <input type="text" name="nome">
+                                <span class="error"></span>
+                            </label>
                         </div>
-                        <br>
+    
                         <div class="input-wrapper">
-                            <label>E-mail</label>
-                            <br>
-                            <input type="text" placeholder="">
+                            <label>
+                                E-mail
+                                <input type="text" name="email">
+                                <span class="error"></span>
+                            </label>
                         </div>
-                        <br>
+    
                         <div class="input-wrapper">
-                            <label>CPF</label>
-                            <br>
-                            <input type="text" placeholder="">
+                            <label>
+                                CPF
+                                <input type="text" name="cpf">
+                                <span class="error"></span>
+                            </label>
                         </div>
+
                         <div class="input-wrapper-genero">
-                            <br>
                             <label><input type="radio" name="genero" value="masculino">Masculino</label>
                             <label><input type="radio" name="genero" value="feminino">Feminino</label>
                         </div>
-                        <br>
+    
 
-                        <button class="send">Enviar</button>
+                        <button class="send" type="submit">Enviar</button>
                     </div>
 
                 </form>
@@ -89,23 +99,8 @@
 
             <h2>Sua seleção especial</h2>
 
-            <div class="gallery-wrapper">
-                <div class="product">
-                    <div class="image-product">
-                        <img src="#" class="image" alt="Galeria">
-                    </div>
-
-                    <div class="product-description">
-                        <p class="name">Nome do produto</p>
-                        <p class="description">Descrição do produto um pouco maior, com duas linhas ou três que explica melhor do que se trata.</p>   
-                        <p class="oldPrice">De: R$23.99</p>
-                        <p class="price">Por: R$19,99</p>
-                        <p class="installments">ou 2x de R$9.99</p>
-                        <button class="buy">Comprar</button> 
-                    </div>
-                </div>
-            </div>
-
+            <div class="gallery-wrapper"></div>
+            <div class="message"></div>
             <button class="nextPage">Ainda mais produtos aqui!</button>
 
         </div>
@@ -117,8 +112,7 @@
             <h2>Compartilhe a novidade</h2>
             <br><br>
             <p>Quer que seus amigos também ganhem a lista personalizada deles? Preencha agora!</p>
-        
-        
+    
     
             <div class="form-share">
                 <form action="">
@@ -150,7 +144,7 @@
     <footer class="footer">
        
     </footer>
-
+    <script src="https://cdn.jsdelivr.net/npm/cpf-cnpj-validator@3.0.0/dist/cpf.js"></script>
     <script src="script.js"></script>
 
 </body>   
