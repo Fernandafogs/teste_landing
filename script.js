@@ -1,84 +1,127 @@
-
 /*-----HOME-ABOUT & FORM-----*/
 
 let form = document.querySelector('#formRegistration');
 
-//Função para validar se todo os campos foram preenchidos no formulário
-form.onsubmit = function(e) {
+// Função para validar se todos os campos foram preenchidos no formulário
+form.addEventListener('submit', function(e) {
     e.preventDefault();
-
+  
     let hasError = false;
-
+  
     let inputName = document.forms['formRegistration']['nome'];
     let inputEmail = document.forms['formRegistration']['email'];
     let inputCpf = document.forms['formRegistration']['cpf'];
     let inputGender = document.forms['formRegistration']['genero'];
-
+    //Confirmação de preenchimento campo nome
     if (!inputName.value) {
-        hasError = true;
-        inputName.classList.add('inputError');
-
-        let span = inputName.nextSibling.nextSibling;
-        span.innerText = 'Digite o nome corretamente';
+      hasError = true;
+      inputName.classList.add('inputError');
+  
+      let span = inputName.nextSibling.nextSibling;
+      span.innerText = 'Digite o nome corretamente';
     } else {
-        inputName.classList.remove('inputError');
-
-        let span = inputName.nextSibling.nextSibling;
-        span.innerText = '';
+      inputName.classList.remove('inputError');
+  
+      let span = inputName.nextSibling.nextSibling;
+      span.innerText = '';
     }
-
+  
+    //Confirmação de preenchimento campo e-mail
     if (!inputEmail.value) {
-        hasError = true;
-        inputEmail.classList.add('inputError');
-
-        let span = inputEmail.nextSibling.nextSibling;
-        span.innerText = 'Digite o e-mail corretamente';
+      hasError = true;
+      inputEmail.classList.add('inputError');
+  
+      let span = inputEmail.nextSibling.nextSibling;
+      span.innerText = 'Digite o e-mail corretamente';
     } else {
-        inputEmail.classList.remove('inputError');
-
-        let span = inputEmail.nextSibling.nextSibling;
-        span.innerText = '';
+      inputEmail.classList.remove('inputError');
+  
+      let span = inputEmail.nextSibling.nextSibling;
+      span.innerText = '';
     }
-
+  
+    //Confirmação de preenchimento campo CPF
     if (!inputCpf.value) {
+      hasError = true;
+      inputCpf.classList.add('inputError');
+  
+      let span = inputCpf.nextSibling.nextSibling;
+      span.innerText = 'Digite seu CPF corretamente';
+    } else {
+      // Validação do CPF
+      function TestaCPF(cpf) {
+        let Soma;
+        let Resto;
+        Soma = 0;
+        if (cpf == "00000000000") return false;
+  
+        for (i = 1; i <= 9; i++) {
+          Soma = Soma + parseInt(cpf.substring(i - 1, i)) * (11 - i);
+        }
+        Resto = (Soma * 10) % 11;
+  
+        if ((Resto == 10) || (Resto == 11)) Resto = 0;
+        if (Resto != parseInt(cpf.substring(9, 10))) return false;
+  
+        Soma = 0;
+        for (i = 1; i <= 10; i++) {
+          Soma = Soma + parseInt(cpf.substring(i - 1, i)) * (12 - i);
+        }
+        Resto = (Soma * 10) % 11;
+  
+        if ((Resto == 10) || (Resto == 11)) Resto = 0;
+        if (Resto != parseInt(cpf.substring(10, 11))) return false;
+        return true;
+      }
+  
+      if (!TestaCPF(inputCpf.value)) {
         hasError = true;
         inputCpf.classList.add('inputError');
-
+  
         let span = inputCpf.nextSibling.nextSibling;
-        span.innerText = 'Digite seu CPF corretamente';
-    } else {
+        span.innerText = 'CPF inválido';
+      } else {
         inputCpf.classList.remove('inputError');
-
+  
         let span = inputCpf.nextSibling.nextSibling;
         span.innerText = '';
-
-    // Validar CPF utilizando a biblioteca cpf-cnpj-validator
-    const cpf = inputCpf.value;
-    if (!CPF.isValid(cpf)) {
-        hasError = true;
-        inputCpf.classList.add('inputError');
-        span.innerText = 'CPF inválido';
+      }
     }
-    }
-
-    if (!inputGender.value) {
-        hasError = true;
-        inputGender.classList.add('inputError');
     
-        let span = inputGender.parentNode.querySelector('.error');
+    //Confirmação de seleção de um dos generos
+    let genderSelected = false;
+    for (var i = 0; i < inputGender.length; i++) {
+        if (inputGender[i].checked) {
+        genderSelected = true;
+        break;
+        }
+    }
+
+    if (!genderSelected) {
+        hasError = true;
+
+        let inputGenderWrapper = document.querySelector('.input-wrapper-genero');
+        inputGenderWrapper.classList.add('inputError');
+
+        let span = inputGenderWrapper.querySelector('.error');
         span.innerText = 'Selecione uma opção';
     } else {
-        inputGender.classList.remove('inputError');
-    
-        let span = inputGender.parentNode.querySelector('.error');
+        let inputGenderWrapper = document.querySelector('.input-wrapper-genero');
+        inputGenderWrapper.classList.remove('inputError');
+
+        let span = inputGenderWrapper.querySelector('.error');
         span.innerText = '';
     }
-    
-    if (!hasError) {
-        form.submit();
-    }
-};
 
+
+  
+    if (!hasError) {
+      const successMessage = document.querySelector('#successMessage');
+      successMessage.textContent = 'Cadastro efetuado com sucesso.';
+      form.reset();
+    }
+});
+  
 
 /*-----GALLERY-----*/
 
@@ -175,3 +218,54 @@ function getCurrentPage() {
 
 // Chamando a função para buscar os produtos da primeira página
 fetchProducts(1);
+
+
+
+
+/*-----SHARE-----*/
+
+let formFriend = document.querySelector('#formShare');
+
+// Função para validar se todos os campos foram preenchidos no formulário
+formFriend.addEventListener('submit', function(e) {
+    e.preventDefault();
+  
+    let hasErrorFriend = false;
+  
+    let inputNameFriend = document.forms['formShare']['nome_amigo'];
+    let inputEmailFriend = document.forms['formShare']['email_amigo'];
+
+    //Confirmação de preenchimento campo nome
+    if (!inputNameFriend.value) {
+      hasErrorFriend = true;
+      inputNameFriend.classList.add('inputError');
+  
+      let spanFriend = inputNameFriend.nextSibling.nextSibling;
+      spanFriend.innerText = 'Digite o nome do amigo corretamente';
+    } else {
+      inputNameFriend.classList.remove('inputError');
+  
+      let spanFriend = inputNameFriend.nextSibling.nextSibling;
+      spanFriend.innerText = '';
+    }
+  
+    //Confirmação de preenchimento campo e-mail
+    if (!inputEmailFriend.value) {
+      hasErrorFriend = true;
+      inputEmailFriend.classList.add('inputError');
+  
+      let spanFriend = inputEmailFriend.nextSibling.nextSibling;
+      spanFriend.innerText = 'Digite o e-mail do amigo corretamente';
+    } else {
+      inputEmailFriend.classList.remove('inputError');
+  
+      let spanFriend = inputEmailFriend.nextSibling.nextSibling;
+      spanFriend.innerText = '';
+    }
+  
+    if (!hasErrorFriend) {
+        const successMessageFriend = document.querySelector('#successMessageFriend');
+        successMessageFriend.textContent = 'Cadastro efetuado com sucesso.';
+        formFriend.reset();
+      }
+  });
