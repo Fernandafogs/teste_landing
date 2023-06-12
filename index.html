@@ -7,9 +7,6 @@
     <title>Teste Landing Page</title>
     <link rel="stylesheet" href="style.css">
 
-    <script src="https://cdn.jsdelivr.net/npm/cpf-cnpj-validator@3.0.0/dist/cpf.js"></script>
-
-
 </head>
 
 <body>
@@ -82,10 +79,13 @@
                         <div class="input-wrapper-genero">
                             <label><input type="radio" name="genero" value="masculino">Masculino</label>
                             <label><input type="radio" name="genero" value="feminino">Feminino</label>
+                            <span class="error"></span>
                         </div>
     
 
                         <button class="send" type="submit">Enviar</button>
+                        <div id="successMessage" class="successMessage"></div>
+
                     </div>
 
                 </form>
@@ -115,25 +115,30 @@
     
     
             <div class="form-share">
-                <form action="">
+                <form id="formShare" action="registerDataFriend.html">
 
                     <div class="personal-data-friend">
 
                         <div class="input-wrapper-friend">
-                            <label>Nome do seu amigo:</label>
-                            <br>
-                            <input type="text" placeholder="">
+                            <label>
+                                Nome do seu amigo:
+                                <input type="text" name="nome_amigo">
+                                <span class="errorFriend"></span>
+                            </label>
                         </div>
                         
                         <div class="input-wrapper-friend">
-                            <label>E-mail:</label>
-                            <br>
-                            <input type="text" placeholder="">
+                            <label>
+                                E-mail:
+                                <input type="text" name="email_amigo">
+                                <span class="errorFriend"></span>
+                            </label>
                         </div>
 
                     </div>    
-                    <br>
-                    <button class="send-friend">Enviar agora</button>
+                    <button class="send-friend" type="submit">Enviar agora</button>
+                    <div id="successMessageFriend" class="successMessageFriend"></div>
+
 
                 </form>
             </div>
@@ -144,7 +149,7 @@
     <footer class="footer">
        
     </footer>
-    <script src="https://cdn.jsdelivr.net/npm/cpf-cnpj-validator@3.0.0/dist/cpf.js"></script>
+    
     <script src="script.js"></script>
 
 </body>   
